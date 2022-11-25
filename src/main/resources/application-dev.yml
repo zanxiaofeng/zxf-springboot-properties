@@ -1,0 +1,65 @@
+#Simple Properties
+simple:
+  #hostname: host@mail.com
+  #host_name: host@mail.com
+  #host-name: host@mail.com
+  #HOST_NAME: host@mail.com
+  hostName: host@mail:com
+  port: 9000
+  from: mailer@mail.com
+
+#Nested Properties
+nested:
+  host: mailer@mail.com
+  port: 9000
+  from: mailer@mail.com
+  allowed-methods: GET, POST
+##List properties
+  defaultRecipients:
+    - admin@mail.com
+    - wner@mail.com
+##Map Properties
+  additionalHeaders.redelivery: true
+  additionalHeaders.secure: true
+  additionalHeaders.X-ABC: 123456
+##Object properties
+  credentials.username: john
+  credentials.password: password
+  credentials.authMethod: SHA1
+
+#Bean Properties
+bean:
+  a:
+    name: a
+    size: 10
+  b:
+    name: b
+    size: 100
+
+#Validation Properties
+validation:
+  hostName: host@mail.com
+  port: 9000
+  from: mailer@mail.com
+  authMethod: SHA1
+
+#Conversion Properties
+##Duration
+duration:
+  timeInDefaultUnit: 10
+  timeBySpec: 9ns
+  timeInDays: 2
+##DataSize
+dataSize:
+  sizeInDefaultUnit: 300
+  sizeBySpec: 2GB
+  sizeInTB: 4
+##Custom
+custom:
+  employee: john,2000
+
+#Immutable Properties
+immutable:
+  authMethod: basic
+  username: john
+  password: password

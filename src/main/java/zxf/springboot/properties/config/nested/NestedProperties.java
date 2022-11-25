@@ -10,6 +10,7 @@ public class NestedProperties {
     private String host;
     private int port;
     private String from;
+    private String[] allowedMethods;
     private List<String> defaultRecipients;
     private Map<String, String> additionalHeaders;
     private Credentials credentials;
@@ -36,6 +37,14 @@ public class NestedProperties {
 
     public void setFrom(String from) {
         this.from = from;
+    }
+
+    public String[] getAllowedMethods() {
+        return allowedMethods;
+    }
+
+    public void setAllowedMethods(String[] allowedMethods) {
+        this.allowedMethods = allowedMethods;
     }
 
     public List<String> getDefaultRecipients() {
