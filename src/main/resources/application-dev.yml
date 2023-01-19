@@ -14,15 +14,15 @@ nested:
   port: 9000
   from: mailer@mail.com
   allowed-methods: GET, POST
-##List properties
+  ##List properties
   defaultRecipients:
     - admin@mail.com
     - wner@mail.com
-##Map Properties
+  ##Map Properties
   additionalHeaders.redelivery: true
   additionalHeaders.secure: true
   additionalHeaders.X-ABC: 123456
-##Object properties
+  ##Object properties
   credentials.username: john
   credentials.password: password
   credentials.authMethod: SHA1
@@ -63,3 +63,8 @@ immutable:
   authMethod: basic
   username: john
   password: password
+
+#Value
+value:
+  host: example.zxf.com
+  port: 8080
