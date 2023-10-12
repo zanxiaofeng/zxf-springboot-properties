@@ -1,7 +1,9 @@
 package zxf.springboot.properties.rest;
 
+import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import zxf.springboot.properties.config.bean.BeanItem;
 import zxf.springboot.properties.config.conversion.CustomProperties;
@@ -76,5 +78,13 @@ public class HomeController {
     @GetMapping("/validation")
     public ValidationProperties validation() {
         return validationProperties;
+    }
+
+    @Autowired
+    StringEncryptor encryptor;
+
+    @GetMapping("/enc")
+    public String enc(@RequestParam String password) {
+        return encryptor.encrypt(password);
     }
 }
