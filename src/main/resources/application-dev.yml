@@ -71,9 +71,3 @@ value:
   host: example.zxf.com
   port: 8080
 
-jasypt:
-  encryptor:
-    algorithm: PBEWITHSHA256AND256BITAES-CBC-BC
-    provider-name: BC
-    key-obtention-iterations: 1000
-    password: 131234434242
