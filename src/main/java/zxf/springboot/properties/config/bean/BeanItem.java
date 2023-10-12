@@ -4,6 +4,8 @@ public class BeanItem {
     private String name;
     private int size;
 
+    private String password;
+
     public String getName() {
         return name;
     }
@@ -18,5 +20,13 @@ public class BeanItem {
 
     public void setSize(int size) {
         this.size = size;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

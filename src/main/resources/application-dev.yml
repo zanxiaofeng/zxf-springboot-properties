@@ -32,9 +32,11 @@ bean:
   a:
     name: a
     size: 10
+    password: ENC(X1M5fMGxStZ+dmWBmO+gT1ybQ/w2TuLUAlkxcyvJqbw=)
   b:
     name: b
     size: 100
+    password: ENC(X1M5fMGxStZ+dmWBmO+gT1ybQ/w2TuLUAlkxcyvJqbw=)
 
 #Validation Properties
 validation:
@@ -68,3 +70,10 @@ immutable:
 value:
   host: example.zxf.com
   port: 8080
+
+jasypt:
+  encryptor:
+    algorithm: PBEWITHSHA256AND256BITAES-CBC-BC
+    provider-name: BC
+    key-obtention-iterations: 1000
+    password: 131234434242
