@@ -32,11 +32,11 @@ bean:
   a:
     name: a
     size: 10
-    password: ENC(X1M5fMGxStZ+dmWBmO+gT1ybQ/w2TuLUAlkxcyvJqbw=)
+    password: ENC(+wfrQ3bUXp4UuP9JKa0jCPTRqZknDuzoQwFLZ+oXoJY=)
   b:
     name: b
     size: 100
-    password: ENC(X1M5fMGxStZ+dmWBmO+gT1ybQ/w2TuLUAlkxcyvJqbw=)
+    password: ENC(UVPMnkO2KiDdsRq/14QN7/EVIENydJJzPVNDD84C0DE=)
 
 #Validation Properties
 validation:

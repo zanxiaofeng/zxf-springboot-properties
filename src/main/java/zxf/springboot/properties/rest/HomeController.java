@@ -12,6 +12,8 @@ import zxf.springboot.properties.config.conversion.DurationProperties;
 import zxf.springboot.properties.config.immutable.ImmutableProperties;
 import zxf.springboot.properties.config.nested.NestedProperties;
 import zxf.springboot.properties.config.simple.SimpleProperties;
+import zxf.springboot.properties.config.source.CountryProperties;
+import zxf.springboot.properties.config.source.MyJdbcProperties;
 import zxf.springboot.properties.config.validation.ValidationProperties;
 
 @RestController
@@ -34,6 +36,10 @@ public class HomeController {
     SimpleProperties simpleProperties;
     @Autowired
     ValidationProperties validationProperties;
+    @Autowired
+    MyJdbcProperties myJdbcProperties;
+    @Autowired
+    CountryProperties countryProperties;
 
     @GetMapping("/bean/a")
     public BeanItem beanA() {
@@ -78,6 +84,16 @@ public class HomeController {
     @GetMapping("/validation")
     public ValidationProperties validation() {
         return validationProperties;
+    }
+
+    @GetMapping("/source/jdbc")
+    public MyJdbcProperties jdbc() {
+        return myJdbcProperties;
+    }
+
+    @GetMapping("/source/country")
+    public CountryProperties country() {
+        return countryProperties;
     }
 
     @Autowired
