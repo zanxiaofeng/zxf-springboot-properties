@@ -71,3 +71,21 @@ value:
   host: example.zxf.com
   port: 8080
 
+feature:
+  toggles:
+    - feature: FeatureA
+      type: None
+      target:
+      toggle: Y
+    - feature: FeatureA
+      type: User
+      target: UserA
+      toggle: N
+    - feature: FeatureB
+      type: None
+      target:
+      toggle: N
+    - feature: FeatureB
+      type: Case
+      target: CaseA
+      toggle: Y

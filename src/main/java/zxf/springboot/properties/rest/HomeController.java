@@ -9,12 +9,15 @@ import zxf.springboot.properties.config.bean.BeanItem;
 import zxf.springboot.properties.config.conversion.CustomProperties;
 import zxf.springboot.properties.config.conversion.DataSizeProperties;
 import zxf.springboot.properties.config.conversion.DurationProperties;
+import zxf.springboot.properties.config.featuretoggle.FeatureToggleProperties;
 import zxf.springboot.properties.config.immutable.ImmutableProperties;
 import zxf.springboot.properties.config.nested.NestedProperties;
 import zxf.springboot.properties.config.simple.SimpleProperties;
 import zxf.springboot.properties.config.source.CountryProperties;
 import zxf.springboot.properties.config.source.MyJdbcProperties;
 import zxf.springboot.properties.config.validation.ValidationProperties;
+
+import java.util.Optional;
 
 @RestController
 public class HomeController {
@@ -40,6 +43,8 @@ public class HomeController {
     MyJdbcProperties myJdbcProperties;
     @Autowired
     CountryProperties countryProperties;
+    @Autowired
+    FeatureToggleProperties featureToggleProperties;
 
     @GetMapping("/bean/a")
     public BeanItem beanA() {
@@ -94,6 +99,15 @@ public class HomeController {
     @GetMapping("/source/country")
     public CountryProperties country() {
         return countryProperties;
+    }
+
+    @GetMapping("/feature/toggle")
+    public Optional<FeatureToggleProperties.FeatureToggle> featureToggles(@RequestParam String feature, @RequestParam(required = false) String type, @RequestParam(required = false) String target) {
+        Optional<FeatureToggleProperties.FeatureToggle> featureToggle = featureToggleProperties.getToggles().stream().filter(FeatureToggleProperties.FeatureToggle.matcher(feature, type, target)).findFirst();
+        if (featureToggle.isPresent()) {
+            return featureToggle;
+        }
+        return featureToggleProperties.getToggles().stream().filter(FeatureToggleProperties.FeatureToggle.matcher(feature)).findFirst();
     }
 
     @Autowired
