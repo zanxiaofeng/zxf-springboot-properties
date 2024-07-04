@@ -4,6 +4,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 @ConfigurationProperties(prefix = "nested")
 public class NestedProperties {
@@ -14,6 +15,7 @@ public class NestedProperties {
     private List<String> defaultRecipients;
     private Map<String, String> additionalHeaders;
     private Credentials credentials;
+    private Properties properties;
 
     public String getHost() {
         return host;
@@ -69,6 +71,14 @@ public class NestedProperties {
 
     public void setCredentials(Credentials credentials) {
         this.credentials = credentials;
+    }
+
+    public Properties getProperties() {
+        return properties;
+    }
+
+    public void setProperties(Properties properties) {
+        this.properties = properties;
     }
 
     public static class Credentials {

@@ -23,9 +23,13 @@ nested:
   additionalHeaders.secure: true
   additionalHeaders.X-ABC: 123456
   ##Object properties
-  credentials.username: john
-  credentials.password: password
-  credentials.authMethod: SHA1
+  credentials.username: john2
+  credentials.password: password2
+  credentials.authMethod: SHA2
+  ##Properties properties
+  properties:
+    oracle.net.keepAlive: true
+    oracle.net.TCP_KEEPIDLE: 60
 
 #Bean Properties
 bean:
