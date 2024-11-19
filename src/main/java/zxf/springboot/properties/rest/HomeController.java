@@ -2,6 +2,7 @@ package zxf.springboot.properties.rest;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,6 +46,8 @@ public class HomeController {
     CountryProperties countryProperties;
     @Autowired
     FeatureToggleProperties featureToggleProperties;
+    @Autowired
+    Environment environment;
 
     @GetMapping("/bean/a")
     public BeanItem beanA() {
@@ -108,6 +111,11 @@ public class HomeController {
             return featureToggle;
         }
         return featureToggleProperties.getToggles().stream().filter(FeatureToggleProperties.FeatureToggle.matcher(feature)).findFirst();
+    }
+
+    @GetMapping("/spring/env")
+    public String springEnv(@RequestParam String property) {
+        return environment.getProperty(property);
     }
 
     @Autowired

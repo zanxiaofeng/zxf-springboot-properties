@@ -13,3 +13,4 @@
 - curl "http://localhost:8080/feature/toggle?feature=FeatureA&type=User&target=UserB"
 - curl "http://localhost:8080/feature/toggle?feature=FeatureB&type=Case&target=CaseA"
 - curl "http://localhost:8080/feature/toggle?feature=FeatureB&type=Case&target=CaseB"
+- curl "http://localhost:8080/spring/env?property=jasypt.encryptor.algorithm"
