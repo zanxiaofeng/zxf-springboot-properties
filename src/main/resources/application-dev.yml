@@ -93,3 +93,9 @@ feature:
       type: Case
       target: CaseA
       toggle: Y
+yaml:
+  a:
+    b:
+      c: 123
+  a.d.d: 234
+yaml.a.d.e: 345
