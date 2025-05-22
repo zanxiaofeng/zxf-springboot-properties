@@ -9,8 +9,6 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 @ConfigurationPropertiesScan
 @EnableEncryptableProperties
-@PropertySource("classpath:/country.properties")
-@PropertySource("classpath:/jdbc-${spring.profiles.active:}.properties")
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);

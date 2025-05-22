@@ -41,7 +41,7 @@ public class HomeController {
     @Autowired
     ValidationProperties validationProperties;
     @Autowired
-    MyJdbcProperties myJdbcProperties;
+    MyJdbcProperties.JdbcProperties myJdbcProperties;
     @Autowired
     CountryProperties countryProperties;
     @Autowired
@@ -95,7 +95,7 @@ public class HomeController {
     }
 
     @GetMapping("/source/jdbc")
-    public MyJdbcProperties jdbc() {
+    public MyJdbcProperties.JdbcProperties jdbc() {
         return myJdbcProperties;
     }
 
