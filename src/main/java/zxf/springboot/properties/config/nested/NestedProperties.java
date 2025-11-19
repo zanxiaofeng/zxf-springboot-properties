@@ -16,6 +16,7 @@ public class NestedProperties {
     private Map<String, String> additionalHeaders;
     private Credentials credentials;
     private Properties properties;
+    private Map<AccountType, Account> accounts;
 
     public String getHost() {
         return host;
@@ -81,6 +82,14 @@ public class NestedProperties {
         this.properties = properties;
     }
 
+    public Map<AccountType, Account> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(Map<AccountType, Account> accounts) {
+        this.accounts = accounts;
+    }
+
     public static class Credentials {
         private String authMethod;
         private String username;
@@ -93,6 +102,38 @@ public class NestedProperties {
         public void setAuthMethod(String authMethod) {
             this.authMethod = authMethod;
         }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+    }
+
+    public enum AccountType {
+        /**
+         * Local account type.
+         */
+        LOCAL,
+        /**
+         * Remote account type.
+         */
+        REMOTE
+    }
+
+    public static class Account {
+        private String username;
+        private String password;
 
         public String getUsername() {
             return username;
