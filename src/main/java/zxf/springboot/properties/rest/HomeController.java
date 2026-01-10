@@ -2,6 +2,7 @@ package zxf.springboot.properties.rest;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,6 +11,7 @@ import zxf.springboot.properties.config.bean.BeanItem;
 import zxf.springboot.properties.config.conversion.CustomProperties;
 import zxf.springboot.properties.config.conversion.DataSizeProperties;
 import zxf.springboot.properties.config.conversion.DurationProperties;
+import zxf.springboot.properties.config.express.ExpressProperties;
 import zxf.springboot.properties.config.featuretoggle.FeatureToggleProperties;
 import zxf.springboot.properties.config.immutable.ImmutableProperties;
 import zxf.springboot.properties.config.nested.NestedProperties;
@@ -48,6 +50,10 @@ public class HomeController {
     FeatureToggleProperties featureToggleProperties;
     @Autowired
     Environment environment;
+    @Value("${express.basicAuth}")
+    String expressBasicAuth;
+    @Autowired
+    ExpressProperties expressProperties;
 
     @GetMapping("/bean/a")
     public BeanItem beanA() {
@@ -124,5 +130,17 @@ public class HomeController {
     @GetMapping("/enc")
     public String enc(@RequestParam String password) {
         return encryptor.encrypt(password);
+    }
+
+    @GetMapping("/express/value")
+    public String expressValue() {
+        // 使用 @Value 注解获取的值是会计算表达式的
+        return expressBasicAuth;
+    }
+
+    @GetMapping("/express/properties")
+    public String expressProperties() {
+        // 使用 @ConfigurationProperties 注解获取的值是明文的，不会计算表达式
+        return expressProperties.getBasicAuth();
     }
 }

@@ -107,3 +107,9 @@ yaml:
       c: 123
   a.d.d: 234
 yaml.a.d.e: 345
+
+express:
+  account:
+    username: ${BASIC_AUTH_USERNAME:john}
+    password: ${BASIC_AUTH_PASSWORD:password}
+  basicAuth: "Basic #{T(java.util.Base64).getEncoder().encodeToString(('${express.account.username}:${express.account.password}').getBytes())}"

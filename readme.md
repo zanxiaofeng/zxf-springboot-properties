@@ -20,3 +20,5 @@
 - curl "http://localhost:8080/spring/env?property=property_a_d_d"
 - curl "http://localhost:8080/spring/env?property=yaml.a.d.e"
 - curl "http://localhost:8080/spring/env?property=property-a-d-e"
+- curl "http://localhost:8080/express/value"
+- curl "http://localhost:8080/express/properties"
