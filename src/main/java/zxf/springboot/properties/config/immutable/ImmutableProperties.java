@@ -1,9 +1,7 @@
 package zxf.springboot.properties.config.immutable;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
 
-@ConstructorBinding
 @ConfigurationProperties(prefix = "immutable")
 public class ImmutableProperties {
     private final String authMethod;

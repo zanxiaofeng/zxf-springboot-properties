@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
