@@ -19,7 +19,7 @@ public class ValueConfig {
         Map<String, String> param = new HashMap<>();
         param.put("uid", "davis");
         param.put("qid", "zzz");
-        URI newURI = UriComponentsBuilder.fromHttpUrl(templateUrl).build(param);
+        URI newURI = UriComponentsBuilder.fromUriString(templateUrl).build(param);
         System.out.println("********************************" + newURI);
     }
 }
